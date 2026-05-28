@@ -39,3 +39,5 @@ results/*.txt
 
 # Results
 results/
+
+*.tex
