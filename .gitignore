@@ -36,3 +36,6 @@ results/*.txt
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Results
+results/

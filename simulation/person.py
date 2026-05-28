@@ -1,6 +1,7 @@
 import random
 import pygame
-from simulation.config import WIDTH, HEIGHT, PERSON_RADIUS, SPEED
+
+from config import WIDTH, HEIGHT, PERSON_RADIUS, SPEED
 
 
 class Person:
@@ -13,6 +14,14 @@ class Person:
 
         self.status = status
         self.infected_time = 0
+
+        self.is_quarantined = False
+        
+        self.target_x = None
+        self.target_y = None
+        self.shop_timer = 0
+        self.can_visit_shop = False
+        self.shop_cooldown = 0  
 
     def move(self):
         self.x += self.vx
@@ -37,3 +46,12 @@ class Person:
             (int(self.x), int(self.y)),
             PERSON_RADIUS,
         )
+
+        if self.is_quarantined:
+            pygame.draw.circle(
+                screen,
+                (0, 0, 0),
+                (int(self.x), int(self.y)),
+                PERSON_RADIUS + 3,
+                2,
+            )
