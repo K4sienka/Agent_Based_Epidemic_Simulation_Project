@@ -2,11 +2,11 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from config import RESULTS_DIR, PLOT_PATH, SCENARIO_NAME
+import config as _cfg
 
 
 def show_plot(history):
-    Path(RESULTS_DIR).mkdir(exist_ok=True)
+    Path(_cfg.RESULTS_DIR).mkdir(exist_ok=True)
 
     plt.figure(figsize=(10, 6))
 
@@ -16,9 +16,9 @@ def show_plot(history):
 
     plt.xlabel("Krok symulacji")
     plt.ylabel("Liczba osób")
-    plt.title(f"Przebieg epidemii w modelu SIR - {SCENARIO_NAME}")
+    plt.title(f"Przebieg epidemii w modelu SIR - {_cfg.SCENARIO_NAME}")
     plt.legend()
     plt.grid(True)
 
-    plt.savefig(PLOT_PATH, dpi=300, bbox_inches="tight")
+    plt.savefig(_cfg.PLOT_PATH, dpi=300, bbox_inches="tight")
     plt.close()
